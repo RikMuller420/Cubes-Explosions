@@ -1,27 +1,20 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class Fragmentator : MonoBehaviour
 {
     [SerializeField] private MeshRenderer _renderer;
     [SerializeField] private Rigidbody _rigidbody;
-    [SerializeField] private Fragmentator _prefab;
+    [SerializeField] private Fragmentator _piecePrefab;
     [SerializeField] private int _minSplitCount = 2;
     [SerializeField] private int _maxSplitCount = 6;
     [SerializeField, Min(1f)] private float _scaleReducing = 2f;
     [SerializeField, Min(1f)] private float _splitChanceReducing = 2f;
-    [SerializeField] private float _explosionForce = 100f;
+    [SerializeField, Min(10f)] private float _piecesExplosionForce = 100f;
 
     private float _splitChancePercent = 100f;
     private float _maxSplitPercent = 100f;
-    private float _explosionRadius = 5f;
 
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        Split();
-    }
-
-    private void Split()
+    public void Split()
     {
         float splitChance = Random.Range(1, _maxSplitPercent);
 
@@ -30,7 +23,7 @@ public class Fragmentator : MonoBehaviour
             CreatePieces();
         }
 
-        Destroy(this);
+        Destroy(gameObject);
     }
 
     private void CreatePieces()
@@ -45,10 +38,11 @@ public class Fragmentator : MonoBehaviour
 
     private void CreatePiece()
     {
-        Fragmentator fragment = Instantiate(_prefab, transform.parent);
+        Fragmentator fragment = Instantiate(_piecePrefab, transform.parent);
 
-        fragment.SetNewSplitChance(_splitChancePercent / _splitChanceReducing);
         fragment.transform.localScale = transform.localScale / _scaleReducing;
+        fragment.transform.position = transform.position;
+        fragment.SetNewSplitChance(_splitChancePercent / _splitChanceReducing);
         fragment.SetRandomColor();
         fragment.AddSplitForce(transform.position);
     }
@@ -65,7 +59,7 @@ public class Fragmentator : MonoBehaviour
 
     private void AddSplitForce(Vector3 splitPosition)
     {
-        _rigidbody.AddExplosionForce(_explosionForce, splitPosition, _explosionRadius);
+        _rigidbody.AddExplosionForce(_piecesExplosionForce, splitPosition, transform.localScale.x);
     }
 
 
