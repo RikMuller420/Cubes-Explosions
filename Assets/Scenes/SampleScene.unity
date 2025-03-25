@@ -343,10 +343,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Explosive Cube (3)
       objectReference: {fileID: 0}
-    - target: {fileID: 7983585451207696578, guid: 174fac3fd344a3b4aba1bd9c94335781, type: 3}
-      propertyPath: _prefab
-      value: 
-      objectReference: {fileID: 7983585451207696578, guid: 174fac3fd344a3b4aba1bd9c94335781, type: 3}
     - target: {fileID: 9219817013170467586, guid: 174fac3fd344a3b4aba1bd9c94335781, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.4
@@ -602,10 +598,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Explosive Cube (5)
       objectReference: {fileID: 0}
-    - target: {fileID: 7983585451207696578, guid: 174fac3fd344a3b4aba1bd9c94335781, type: 3}
-      propertyPath: _prefab
-      value: 
-      objectReference: {fileID: 7983585451207696578, guid: 174fac3fd344a3b4aba1bd9c94335781, type: 3}
     - target: {fileID: 9219817013170467586, guid: 174fac3fd344a3b4aba1bd9c94335781, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.58
@@ -840,10 +832,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Explosive Cube (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 7983585451207696578, guid: 174fac3fd344a3b4aba1bd9c94335781, type: 3}
-      propertyPath: _prefab
-      value: 
-      objectReference: {fileID: 7983585451207696578, guid: 174fac3fd344a3b4aba1bd9c94335781, type: 3}
     - target: {fileID: 9219817013170467586, guid: 174fac3fd344a3b4aba1bd9c94335781, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.02
@@ -991,10 +979,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Explosive Cube (4)
       objectReference: {fileID: 0}
-    - target: {fileID: 7983585451207696578, guid: 174fac3fd344a3b4aba1bd9c94335781, type: 3}
-      propertyPath: _prefab
-      value: 
-      objectReference: {fileID: 7983585451207696578, guid: 174fac3fd344a3b4aba1bd9c94335781, type: 3}
     - target: {fileID: 9219817013170467586, guid: 174fac3fd344a3b4aba1bd9c94335781, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.85
@@ -1057,10 +1041,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Explosive Cube (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 7983585451207696578, guid: 174fac3fd344a3b4aba1bd9c94335781, type: 3}
-      propertyPath: _prefab
-      value: 
-      objectReference: {fileID: 7983585451207696578, guid: 174fac3fd344a3b4aba1bd9c94335781, type: 3}
     - target: {fileID: 9219817013170467586, guid: 174fac3fd344a3b4aba1bd9c94335781, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.22
@@ -1118,10 +1098,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Explosive Cube
       objectReference: {fileID: 0}
-    - target: {fileID: 7983585451207696578, guid: 174fac3fd344a3b4aba1bd9c94335781, type: 3}
-      propertyPath: _prefab
-      value: 
-      objectReference: {fileID: 7983585451207696578, guid: 174fac3fd344a3b4aba1bd9c94335781, type: 3}
     - target: {fileID: 9219817013170467586, guid: 174fac3fd344a3b4aba1bd9c94335781, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.1099446
