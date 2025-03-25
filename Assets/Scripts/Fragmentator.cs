@@ -1,5 +1,7 @@
 using UnityEngine;
 
+[RequireComponent(typeof(MeshRenderer))]
+[RequireComponent(typeof(Rigidbody))]
 public class Fragmentator : MonoBehaviour
 {
     [SerializeField] private MeshRenderer _renderer;

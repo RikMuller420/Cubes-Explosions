@@ -151,9 +151,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _renderer: {fileID: 1617942811146411845}
   _rigidbody: {fileID: 7070207892045212399}
-  _prefab: {fileID: 7983585451207696578}
+  _piecePrefab: {fileID: 7983585451207696578}
   _minSplitCount: 2
   _maxSplitCount: 6
   _scaleReducing: 2
   _splitChanceReducing: 2
-  _explosionForce: 100
+  _piecesExplosionForce: 100
