@@ -2,19 +2,27 @@ using UnityEngine;
 
 [RequireComponent(typeof(MeshRenderer))]
 [RequireComponent(typeof(Rigidbody))]
-public class Fragmentator : MonoBehaviour
+public class FragmentCreator : MonoBehaviour
 {
     [SerializeField] private MeshRenderer _renderer;
     [SerializeField] private Rigidbody _rigidbody;
-    [SerializeField] private Fragmentator _piecePrefab;
+    [SerializeField] private FragmentCreator _piecePrefab;
     [SerializeField] private int _minSplitCount = 2;
     [SerializeField] private int _maxSplitCount = 6;
-    [SerializeField, Min(1f)] private float _scaleReducing = 2f;
-    [SerializeField, Min(1f)] private float _splitChanceReducing = 2f;
+    [SerializeField, Min(1f)] private float _scaleReduction = 2f;
+    [SerializeField, Min(1f)] private float _splitChanceReduction = 2f;
     [SerializeField, Min(10f)] private float _piecesExplosionForce = 100f;
 
     private float _splitChancePercent = 100f;
     private float _maxSplitPercent = 100f;
+
+    private void OnValidate()
+    {
+        if (_maxSplitCount < _minSplitCount)
+        {
+            _maxSplitCount = _minSplitCount;
+        }
+    }
 
     public void Split()
     {
@@ -40,11 +48,11 @@ public class Fragmentator : MonoBehaviour
 
     private void CreatePiece()
     {
-        Fragmentator fragment = Instantiate(_piecePrefab, transform.parent);
+        FragmentCreator fragment = Instantiate(_piecePrefab, transform.parent);
 
-        fragment.transform.localScale = transform.localScale / _scaleReducing;
+        fragment.transform.localScale = transform.localScale / _scaleReduction;
         fragment.transform.position = transform.position;
-        fragment.SetNewSplitChance(_splitChancePercent / _splitChanceReducing);
+        fragment.SetSplitChance(_splitChancePercent / _splitChanceReduction);
         fragment.SetRandomColor();
         fragment.AddSplitForce(transform.position);
     }
@@ -54,7 +62,7 @@ public class Fragmentator : MonoBehaviour
         _renderer.material.color = new Color(Random.value, Random.value, Random.value);
     }
 
-    private void SetNewSplitChance(float splitChancePercent)
+    private void SetSplitChance(float splitChancePercent)
     {
         _splitChancePercent = splitChancePercent;
     }
@@ -62,14 +70,5 @@ public class Fragmentator : MonoBehaviour
     private void AddSplitForce(Vector3 splitPosition)
     {
         _rigidbody.AddExplosionForce(_piecesExplosionForce, splitPosition, transform.localScale.x);
-    }
-
-
-    private void OnValidate()
-    {
-        if (_maxSplitCount < _minSplitCount)
-        {
-            _maxSplitCount = _minSplitCount;
-        }
     }
 }

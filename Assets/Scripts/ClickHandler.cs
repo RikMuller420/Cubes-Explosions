@@ -22,10 +22,9 @@ public class ClickHandler : MonoBehaviour
 
         if (Physics.Raycast(ray, out RaycastHit hit, float.MaxValue, _cubes))
         {
-            Debug.Log(hit.collider.gameObject.name);
-            if (hit.collider.TryGetComponent<Fragmentator>(out Fragmentator fragmentator))
+            if (hit.collider.TryGetComponent(out FragmentCreator fragmentCreator))
             {
-                fragmentator.Split();
+                fragmentCreator.Split();
             }
         }
     }
