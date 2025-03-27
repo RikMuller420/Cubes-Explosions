@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1617942811146411845}
   - component: {fileID: 2014818045296371503}
   - component: {fileID: 7070207892045212399}
-  - component: {fileID: 7983585451207696578}
+  - component: {fileID: 6663803903818461055}
   m_Layer: 6
   m_Name: Explosive Cube
   m_TagString: Untagged
@@ -137,7 +137,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &7983585451207696578
+--- !u!114 &6663803903818461055
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,14 +146,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6107632437629757538}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa041b3cc9155dd429d330472df9e460, type: 3}
+  m_Script: {fileID: 11500000, guid: 26511e84b0ce10d4ba55631e17454285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SplitChancePercent: 100
   _renderer: {fileID: 1617942811146411845}
   _rigidbody: {fileID: 7070207892045212399}
-  _piecePrefab: {fileID: 7983585451207696578}
-  _minSplitCount: 2
-  _maxSplitCount: 6
-  _scaleReducing: 2
-  _splitChanceReducing: 2
-  _piecesExplosionForce: 100
