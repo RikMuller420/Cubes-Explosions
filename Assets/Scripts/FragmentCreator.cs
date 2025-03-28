@@ -19,14 +19,14 @@ public class FragmentCreator : MonoBehaviour
         }
     }
 
-    public List<SplittableCube> CreateFragments(SplittableCube parent)
+    public bool TryCreateFragments(SplittableCube parent, out List<SplittableCube> fragments)
     {
-        List<SplittableCube> fragments = new List<SplittableCube>();
+        fragments = new List<SplittableCube>();
         float splitChance = Random.Range(1, _maxSplitPercent);
 
         if (splitChance > parent.SplitChancePercent)
         {
-            return fragments;
+            return false;
         }
 
         int fragmentCount = Random.Range(_minSplitCount, _maxSplitCount);
@@ -36,7 +36,7 @@ public class FragmentCreator : MonoBehaviour
             fragments.Add(CreateFragment(parent));
         }
 
-        return fragments;
+        return true;
     }
 
     private SplittableCube CreateFragment(SplittableCube parent)

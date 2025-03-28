@@ -25,7 +25,14 @@ public class CubeSplitter : MonoBehaviour
     public void SplitCube(SplittableCube splittableCube)
     {
         Destroy(splittableCube.gameObject);
-        List<SplittableCube> fragments = _fragmentCreator.CreateFragments(splittableCube);
-        _explosionCreator.ExplodeFragments(fragments);
+
+        if (_fragmentCreator.TryCreateFragments(splittableCube, out List<SplittableCube> fragments))
+        {
+            _explosionCreator.ExplodeFragments(splittableCube, fragments);
+        }
+        else
+        {
+            _explosionCreator.CreateExplosion(splittableCube);
+        }
     }
 }
