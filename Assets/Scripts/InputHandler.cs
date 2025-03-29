@@ -1,9 +1,10 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class InputHandler : MonoBehaviour
 {
-    [SerializeField] private CubeSplitter _cubeSplitter;
+    public event Action LeftMouseButtonClicked;
 
     private void Update()
     {
@@ -11,7 +12,7 @@ public class InputHandler : MonoBehaviour
 
         if (isClicked)
         {
-            _cubeSplitter.TrySplitCubeInClickPosition();
+            LeftMouseButtonClicked?.Invoke();
         }
     }
 }

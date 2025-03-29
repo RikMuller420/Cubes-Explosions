@@ -5,13 +5,31 @@ using UnityEngine.InputSystem;
 public class CubeSplitter : MonoBehaviour
 {
     [SerializeField] private LayerMask _cubes;
+    [SerializeField] private InputHandler _inputHandler;
     [SerializeField] private FragmentCreator _fragmentCreator;
     [SerializeField] private ExplosionCreator _explosionCreator;
 
-    public void TrySplitCubeInClickPosition()
+    private Camera _mainCamera;
+
+    private void Awake()
+    {
+        _mainCamera = Camera.main;
+    }
+
+    private void OnEnable()
+    {
+        _inputHandler.LeftMouseButtonClicked += TrySplitCubeInClickPosition;
+    }
+
+    private void OnDisable()
+    {
+        _inputHandler.LeftMouseButtonClicked -= TrySplitCubeInClickPosition;
+    }
+
+    private void TrySplitCubeInClickPosition()
     {
         Vector2 mousePosition = Mouse.current.position.ReadValue();
-        Ray ray = Camera.main.ScreenPointToRay(mousePosition);
+        Ray ray = _mainCamera.ScreenPointToRay(mousePosition);
 
         if (Physics.Raycast(ray, out RaycastHit hit, float.MaxValue, _cubes))
         {

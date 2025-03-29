@@ -29,7 +29,7 @@ public class FragmentCreator : MonoBehaviour
             return false;
         }
 
-        int fragmentCount = Random.Range(_minSplitCount, _maxSplitCount);
+        int fragmentCount = Random.Range(_minSplitCount, _maxSplitCount + 1);
 
         for (int i = 0; i < fragmentCount; i++)
         {
@@ -50,7 +50,7 @@ public class FragmentCreator : MonoBehaviour
         fragment.Renderer.material.color = randomColor;
 
         float splitChance = parent.SplitChancePercent / _splitChanceReduction;
-        fragment.SplitChancePercent = splitChance;
+        fragment.SetSplitChance(splitChance);
 
         return fragment;
     }
